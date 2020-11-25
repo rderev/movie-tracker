@@ -38,11 +38,11 @@ export default function Watchlist() {
   }
 
   return (
-    <Container p={3} maxW="80em">
-      <SimpleGrid minChildWidth={150} spacing={3}>
+    <Container p={5} maxW="75em">
+      <SimpleGrid columns={4} spacing={1}>
         {movies.map(movie => (
           <Box as={Link} to={`/movies/${movie.id}`} key={movie.id} pos="relative" noOfLines={2}>
-            <Badge variant="solid" colorScheme="teal" pos="absolute" top={1} right={1}>
+            <Badge variant="solid" colorScheme="teal" pos="absolute" top={1} left={1}>
               {movie.vote_average}
             </Badge>
             <Tooltip label={movie.title}>
@@ -50,9 +50,9 @@ export default function Watchlist() {
                 src={buildImageUrl(movie.poster_path, 'w300')}
                 alt="Poster"
                 fallbackSrc={imageFallback}
+                border="5px solid #1C4532"
               />
             </Tooltip>
-            <Text>{movie.title}</Text>
           </Box>
         ))}
       </SimpleGrid>

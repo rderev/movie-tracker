@@ -14,8 +14,9 @@ import { ChevronLeftIcon, AddIcon, CheckIcon } from '@chakra-ui/icons';
 import { useParams, useHistory } from 'react-router-dom';
 import useMovie from '../hooks/useMovie';
 import { buildImageUrl, imageFallback } from '../connectors/tmdb';
-import { getYear, STATUS } from '../utils';
+import { getYear, STATUS, MovieTime } from '../utils';
 import WatchlistButton from '../components/WatchlistButton';
+import HistoryButton from '../components/HistoryButton';
 
 export default function Movie() {
   const { movieId } = useParams();
@@ -57,13 +58,7 @@ export default function Movie() {
         />
         <HStack>
           <WatchlistButton movie={movie} status={updateStatus} update={updateMovie} />
-          <IconButton
-            aria-label={isHistoryActive ? 'Remove from history' : 'Mark as watched'}
-            icon={isHistoryActive ? <CheckIcon /> : <AddIcon />}
-            colorScheme="teal"
-            variant={isHistoryActive ? 'solid' : 'outline'}
-            onClick={() => setHistoryActive(a => !a)}
-          />
+          <HistoryButton movie={movie} status={updateStatus} update={updateMovie} />
         </HStack>
       </HStack>
       <HStack spacing={3} align="flex-start">
@@ -74,16 +69,20 @@ export default function Movie() {
             w="35vw"
             maxW={300}
             fallbackSrc={imageFallback}
+            border="2px solid yellow"
           />
         </Box>
-        <Box w="100%">
+        <Box w="100%" border="2px solid green" padding={10}>
           <HStack justify="space-between">
-            <Heading as="h2">{movie.title}</Heading>
-            <Text as="span" color="GrayText">
+            <Heading as="h2" pb="25px" color="#2F855A">{movie.title}</Heading>
+            <Text as="span" color="#68D391">
               {getYear(movie.release_date)}
             </Text>
           </HStack>
-          <Text>{movie.overview}</Text>
+          <Text pb="25px" color="#68D391">{movie.overview}</Text>
+          <Text as="span" color="#9AE6B4"> <i> Duration: </i> <b color="default"> {MovieTime(movie.runtime)} </b> | &#128336; </Text>
+          <Text color="#9AE6B4"> <i> Language: </i> <b> {movie.original_language} </b> | &#128100; </Text>
+          <Text color="#9AE6B4"><i>Rating: </i> <b>{movie.vote_average} </b> | &#11088; </Text>
         </Box>
       </HStack>
     </Container>

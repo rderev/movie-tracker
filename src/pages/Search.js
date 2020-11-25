@@ -3,17 +3,19 @@ import { useParams, useHistory, Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Input,
+  Image,
   IconButton,
-  UnorderedList,
+  List,
   ListItem,
   Container,
   Link,
   Progress,
   Text,
+  Flex,
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import useFetchEffect from '../hooks/useFetchEffect';
-import { buildSearchMovieUrl } from '../connectors/tmdb';
+import { buildSearchMovieUrl, buildImageUrl, imageFallback } from '../connectors/tmdb';
 import { getYear, STATUS } from '../utils';
 
 export default function Search() {
@@ -42,7 +44,7 @@ export default function Search() {
           isLoading={status === STATUS.PENDING}
         />
       </Box>
-      {status === STATUS.IDLE && <Text>Type some terms and submit for a quick search</Text>}
+      {status === STATUS.IDLE && <Text textAlign="center"> <b>Type some terms and submit for a quick search 🔍 </b></Text>}
       {status === STATUS.PENDING && <Progress size="xs" isIndeterminate />}
       {status === STATUS.REJECTED && (
         <Text>
@@ -50,18 +52,32 @@ export default function Search() {
         </Text>
       )}
       {status === STATUS.RESOLVED && (
-        <UnorderedList>
-          {data.results.map(({ id, title, release_date }) => (
-            <ListItem key={id}>
+        <List spacing={20}>
+          {data.results.map(({ id, title, release_date, poster_path, runtime}) => (
+            <ListItem key={id} display="flex" justifyContent="center" position="relative">
               <Link as={RouterLink} to={`/movies/${id}`}>
-                <Text as="span">{title} </Text>
-                <Text as="span" color="GrayText">
-                  {getYear(release_date)}
-                </Text>
+                <Box float="left" position="absolute" left="0" paddingTop="25px">
+                  <Text as="em" color="#2F855A"><b>{title}</b> </Text>
+                  <Text as="span" color="#68D391">
+                    {getYear(release_date)}
+                  </Text>
+                </Box>
+                <Image
+                src={buildImageUrl(poster_path, 'w300')}
+                alt='Poster'
+                w='75px'
+                h='75px'
+                objectFit='cover'
+                fallbackSrc={imageFallback}
+                borderRadius='10px'
+                position='absolute'
+                right='0'
+                padding='5px'
+                />
               </Link>
             </ListItem>
           ))}
-        </UnorderedList>
+        </List>
       )}
       {/* @todo: Display a message when no results */}
     </Container>

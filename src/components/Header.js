@@ -27,7 +27,7 @@ export default function Header() {
         >
           <Flex align="center" mr={5}>
             <Heading as={RouterLink} to="/" size="lg" letterSpacing={'-.1rem'}>
-              Movie Tracker
+              Movie Tracker!
             </Heading>
           </Flex>
 
@@ -42,15 +42,16 @@ export default function Header() {
             width={{ base: 'full', sm: 'auto' }}
             alignItems="center"
             flexGrow={1}
+            pt="10px"
           >
-            <MenuItem to="/search">Search</MenuItem>
-            <MenuItem to="/watchlist">Watchlist</MenuItem>
-            <MenuItem to="/history">History</MenuItem>
+            <MenuItem to="/search"> <b>Search</b></MenuItem>
+            <MenuItem to="/watchlist"> <b>Watchlist </b></MenuItem>
+            <MenuItem to="/history"><b>History</b></MenuItem>
           </Box>
 
           <Box display={{ base: show ? 'block' : 'none', sm: 'block' }} mt={{ base: 4, sm: 0 }}>
-            <Button as={RouterLink} to="/recommendations" bg="transparent" border="1px">
-              What to watch
+            <Button as={RouterLink} to="/recommendations" bg="transparent" border="2px">
+              What to watch?
             </Button>
           </Box>
         </Flex>
