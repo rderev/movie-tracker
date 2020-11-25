@@ -141,18 +141,18 @@ mândru de realizarea ta.
    ~~Apoi modifică datele de conectare (user, pass, url) la MongoDB în `server/db.js -> CONFIG`. E
    important ca să evităm conflictele. Cel puțin, folosește o bază de date diferită.~~
 
-2. Completează pagina Search cu mai multe informații (popularitatea, ratingul, posterul, orice
-   altceva ți se pare interesant). Adaptează design-ul.
-3. Completeaza pagina unui film cu mai multe informații (backdrop, genres, link to imdb, durata,
-   profit, rating, orice altceva ți se pare interesant). Adaptează design-ul.
-4. Pe pagina unui film există 2 acțiuni - adaugă la favorite și adaugă în istoric. Primul este deja
+2. ~~Completează pagina Search cu mai multe informații (popularitatea, ratingul, posterul, orice
+   altceva ți se pare interesant). Adaptează design-ul.~~
+3. ~~Completeaza pagina unui film cu mai multe informații (backdrop, genres, link to imdb, durata,
+   profit, rating, orice altceva ți se pare interesant). Adaptează design-ul.~~
+4. ~~Pe pagina unui film există 2 acțiuni - adaugă la favorite și adaugă în istoric. Primul este deja
    implementat. Sarcina este să-l implementezi și pe-al doilea - adaugă în istoric, care la click,
-   face un request către server, care va salva starea nouă în BD.
+   face un request către server, care va salva starea nouă în BD.~~
 5. Acum că avem funcționalitatea de a adăuga în istoric, să o îmbunătățim cu data când a fost
    salvat. Și dacă utilizatorul a privit filmul în altă zi? Pentru asta mai adaugă și opțiunea de a
    schimba data. Oare putem privi un film care încă nu a fost lansat?
-6. Afișează istoricul în pagina corespunzătoare. Poți să te inspiri de la pagina de favorite, dar să
-   modifici design-ul. Iar pentru sortare, ne vom folosi de data când a fost privit.
+6. ~~Afișează istoricul în pagina corespunzătoare. Poți să te inspiri de la pagina de favorite, dar să
+   modifici design-ul. Iar pentru sortare, ne vom folosi de data când a fost privit.~~
 7. Implementează funcția de recomandări filme - afișează 3 filme random din lista de favorite. O să
    ai nevoie de un buton de actualizare listă, în caz că utilizatorului nu-i plac recomandările. Nu
    afișa filmele favorite deja privite. Lasă utilizatorul să poată șterge un film din favorite
@@ -170,8 +170,8 @@ mândru de realizarea ta.
 10. Salvează și sortează după momentul când filmul a fost adăugat la favorite.
 11. Adaugă un filtru după categorii pentru Recomandări. Vezi că există un API cu toate categoriile
     existente.
-12. Oferă aplicației o altă interfață. E o oportunitate bună să experimentezi, lasă designerul din
-    tine liber să-și facă de cap.
+12. ~~Oferă aplicației o altă interfață. E o oportunitate bună să experimentezi, lasă designerul din
+    tine liber să-și facă de cap.~~
 13. Îmbunătățește algoritmul de recomandări cu ceva mai inteligent.
 
 ## După ce ai terminat sarcinile,

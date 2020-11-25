@@ -3,6 +3,12 @@ export const getYear = date => {
   return date.substr(0, 4);
 };
 
+export const MovieTime = num => {
+  const hours = Math.floor(num / 60)
+  const minutes = num % 60
+  return `${hours}h ${minutes}m`
+};
+
 export const STATUS = {
   IDLE: 'idle',
   PENDING: 'pending',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconButton, Tooltip } from '@chakra-ui/react';
-import { StarIcon } from '@chakra-ui/icons';
+import { StarIcon, DeleteIcon } from '@chakra-ui/icons';
 import { STATUS } from '../utils';
 import { WATCHLIST } from '../connectors/api';
 
@@ -18,10 +18,9 @@ export default function WatchlistButton({ movie, status, update }) {
     <Tooltip label={label}>
       <IconButton
         aria-label={label}
-        icon={<StarIcon />}
+        icon={isListed ? <DeleteIcon /> : <StarIcon />}
         colorScheme="teal"
         variant={isListed ? 'solid' : 'outline'}
-        isLoading={status === STATUS.PENDING}
         onClick={toggleWatchlist}
       />
     </Tooltip>
