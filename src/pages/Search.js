@@ -44,7 +44,7 @@ export default function Search() {
           isLoading={status === STATUS.PENDING}
         />
       </Box>
-      {status === STATUS.IDLE && <Text textAlign="center"> <b>Type some terms and submit for a quick search.</b></Text>}
+      {status === STATUS.IDLE && <Text textAlign="center"> <b>Type some terms and submit for a quick search 🔍 </b></Text>}
       {status === STATUS.PENDING && <Progress size="xs" isIndeterminate />}
       {status === STATUS.REJECTED && (
         <Text>

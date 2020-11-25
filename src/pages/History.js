@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 import useFetchEffect from '../hooks/useFetchEffect';
 import { buildImageUrl, imageFallback } from '../connectors/tmdb';
 import { HISTORY_URL } from '../connectors/api';
-import { STATUS } from '../utils';
+import { STATUS, SetDate } from '../utils';
 
 
 export default function History() {
@@ -40,20 +40,20 @@ export default function History() {
 
   return (
     <Container p={5} maxW="75em">
-      <SimpleGrid minChildWidth={150} spacing={1}>
+      <SimpleGrid columns={4} spacing={1}>
         {movies.map(movie => (
-          <Box as={Link} to={`/movies/${movie.id}`} key={movie.id} pos="relative" noOfLines={2}>
-            <Badge variant="solid" colorScheme="teal" pos="absolute" top={1} left={1}>
-              {movie.vote_average}
-            </Badge>
-            <Tooltip label={movie.title}>
-              <Image
-                src={buildImageUrl(movie.poster_path, 'w300')}
-                alt="Poster"
-                fallbackSrc={imageFallback}
-                border="5px solid #63171B"
-              />
-            </Tooltip>
+          <Box>
+            <Link to={`/movies/${movie.id}`} key={movie.id} noOfLines={2}>
+              <Tooltip label={movie.title}>
+                <Image
+                  src={buildImageUrl(movie.poster_path, 'w300')}
+                  alt="Poster"
+                  fallbackSrc={imageFallback}
+                  border="5px solid #63171B"
+                />
+              </Tooltip>
+            </Link>
+            <Text border="2px solid #C53030" color="#7B341E" pl="5px"> Saw it on: <SetDate/> </Text>
           </Box>
         ))}
       </SimpleGrid>

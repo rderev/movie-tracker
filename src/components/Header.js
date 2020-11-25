@@ -50,8 +50,8 @@ export default function Header() {
           </Box>
 
           <Box display={{ base: show ? 'block' : 'none', sm: 'block' }} mt={{ base: 4, sm: 0 }}>
-            <Button as={RouterLink} to="/recommendations" bg="transparent" border="1px">
-              What to watch
+            <Button as={RouterLink} to="/recommendations" bg="transparent" border="2px">
+              What to watch?
             </Button>
           </Box>
         </Flex>

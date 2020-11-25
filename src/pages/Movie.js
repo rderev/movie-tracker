@@ -69,9 +69,10 @@ export default function Movie() {
             w="35vw"
             maxW={300}
             fallbackSrc={imageFallback}
+            border="2px solid yellow"
           />
         </Box>
-        <Box w="100%">
+        <Box w="100%" border="2px solid green" padding={10}>
           <HStack justify="space-between">
             <Heading as="h2" pb="25px" color="#2F855A">{movie.title}</Heading>
             <Text as="span" color="#68D391">
@@ -79,9 +80,9 @@ export default function Movie() {
             </Text>
           </HStack>
           <Text pb="25px" color="#68D391">{movie.overview}</Text>
-          <Text as="span" color="#9AE6B4"> <i> Duration: </i> <b color="default"> {MovieTime(movie.runtime)} </b> </Text>
-          <Text color="#9AE6B4"> <i> Language: </i> <b> {movie.original_language} </b></Text>
-          <Text color="#9AE6B4"><i>Rating: </i> <b>{movie.vote_average} </b></Text>
+          <Text as="span" color="#9AE6B4"> <i> Duration: </i> <b color="default"> {MovieTime(movie.runtime)} </b> | &#128336; </Text>
+          <Text color="#9AE6B4"> <i> Language: </i> <b> {movie.original_language} </b> | &#128100; </Text>
+          <Text color="#9AE6B4"><i>Rating: </i> <b>{movie.vote_average} </b> | &#11088; </Text>
         </Box>
       </HStack>
     </Container>

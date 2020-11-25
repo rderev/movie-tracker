@@ -39,7 +39,7 @@ export default function Watchlist() {
 
   return (
     <Container p={5} maxW="75em">
-      <SimpleGrid minChildWidth={150} spacing={1}>
+      <SimpleGrid columns={4} spacing={1}>
         {movies.map(movie => (
           <Box as={Link} to={`/movies/${movie.id}`} key={movie.id} pos="relative" noOfLines={2}>
             <Badge variant="solid" colorScheme="teal" pos="absolute" top={1} left={1}>
